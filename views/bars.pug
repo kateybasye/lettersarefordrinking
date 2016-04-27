@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	a(href='/') Home
+	h1.align-h-center #{letter} is for...
+	table
+		th Name
+		th Address
+		th Neighborhood
+		th City
+		th Rating
+		th Review Count
+		each val in bars
+			tr 
+				td
+					a(href=val.url, target='_blank') #{val.name}
+				td #{val.name}
+				td #{val.neighborhood}
+				td #{val.city}
+				td #{val.rating}
+				td #{val.review_count}

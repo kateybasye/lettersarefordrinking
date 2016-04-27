@@ -1,0 +1,75 @@
+html {font-size: 1.125em;}
+
+body {
+  background-color: white;
+  font-family: Avenir;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #333;
+  padding-top: 1em;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1, .font_huge {
+  margin-top: 0;
+  font-size: 3.998em;
+}
+
+h2 {font-size: 2.827em;}
+
+h3 {font-size: 1.999em;}
+
+h4 {font-size: 1.414em;}
+
+small, .font_small {font-size: 0.707em;}
+
+.wrapper{
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*Utility*/
+a{
+	color: blue;
+}
+a:visited{
+	color: blue;
+}
+a.visited{
+	color: cornflowerblue;
+}
+.align-h-center{
+	text-align: center;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li{
+	display: inline-block;
+	padding-right: 2em;
+}
+
+/* Temp Table*/
+
+table{
+	width: 100%;
+}
+
+th{
+	text-align: left;
+}
+td{
+	padding: 1em 0 1em .5em;
+}
+tr:nth-child(even){
+	background-color: aliceblue;
+}

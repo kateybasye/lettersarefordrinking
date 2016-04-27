@@ -1,0 +1,16 @@
+{
+  "name": "letters-are-for-drinking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Katey Basye",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.18",
+    "pug": "^2.0.0-alpha6"
+  }
+}

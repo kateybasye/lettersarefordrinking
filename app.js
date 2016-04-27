@@ -6,6 +6,9 @@ var path = require('path');
 		app.use(express.static(path.join(__dirname, 'public')));
 var mongo = require('mongodb').MongoClient;
 
+var mongoUri = process.env.PROD_MONGODB ||
+  'mongodb://127.0.0.1:27017/l4d';
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -24,7 +27,7 @@ app.get('/', function (req, res) {
 
 app.get('/bars/:letter', function (req, res) {
 	var letter = req.param('letter');
-	mongo.connect('mongodb://127.0.0.1:27017/l4d', function(err, db) {
+	mongo.connect(mongoUri, function(err, db) {
 	  if (err) {
 	    throw err;
 	  }

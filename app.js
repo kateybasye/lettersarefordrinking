@@ -8,13 +8,9 @@ var mongo = require('mongodb').MongoClient;
 
 var mongoUri = process.env.MONGO_URI ||
   'mongodb://127.0.0.1:27017/l4d';
-
+  
 var port = process.env.PORT || 3000;
-var server = app.listen(port, "127.0.0.1" || process.env.HOST, function () {
-  	var host = server.address().address;
-    var port = server.address().port;
-    console.log('running at http://' + host + ':' + port)
-});
+    app.listen(port);
 
 // Routes
 var title = "Letters Are For Drinking";

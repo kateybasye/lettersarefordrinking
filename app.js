@@ -6,11 +6,12 @@ var path = require('path');
 		app.use(express.static(path.join(__dirname, 'public')));
 var mongo = require('mongodb').MongoClient;
 
-var mongoUri = process.env.PROD_MONGODB ||
+var mongoUri = process.env.MONGO_URI ||
   'mongodb://127.0.0.1:27017/l4d';
 
-var server = app.listen(process.env.PORT || 3000, "127.0.0.1" || process.env.HOST, function () {
-  var host = server.address().address;
+var port = process.env.PORT || 3000;
+var server = app.listen(port, "127.0.0.1" || process.env.HOST, function () {
+  	var host = server.address().address;
     var port = server.address().port;
     console.log('running at http://' + host + ':' + port)
 });

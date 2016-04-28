@@ -32,6 +32,8 @@ app.get('/bars/:letter', function (req, res) {
 	  }
 	  db.collection('bars').find({letter: letter}).toArray(function(err, result) {
 	    if (err) {
+	    	console.log("There has been an error")
+	    	res.send(err);
 	      throw err;
 	    }
 	    res.render('bars', {

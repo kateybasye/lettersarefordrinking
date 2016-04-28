@@ -9,8 +9,10 @@ var mongo = require('mongodb').MongoClient;
 var mongoUri = process.env.PROD_MONGODB ||
   'mongodb://127.0.0.1:27017/l4d';
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Example app listening on port 3000!');
+var server = app.listen(process.env.PORT || 3000, "127.0.0.1" || process.env.HOST, function () {
+  var host = server.address().address;
+    var port = server.address().port;
+    console.log('running at http://' + host + ':' + port)
 });
 
 // Routes

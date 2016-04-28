@@ -9,7 +9,7 @@ var mongo = require('mongodb').MongoClient;
 var mongoUri = process.env.PROD_MONGODB ||
   'mongodb://127.0.0.1:27017/l4d';
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
 });
 

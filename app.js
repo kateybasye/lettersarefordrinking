@@ -40,6 +40,6 @@ app.get('/bars/:letter', function (req, res) {
 	    	bars: result,
 	    	title: title + " // " + letter + " Bars"
 	    })
-	  }, sort({city: 1}));
+	  });
 	});
 });

@@ -29,7 +29,8 @@ app.get('/bars/:letter', function (req, res) {
 	  if (err) {
 	    throw err;
 	  }
-	  db.collection('bars').find({letter: letter}).toArray(function(err, result) {
+
+	  db.collection('bars').find({letter: letter}).sort({city: 1}).toArray(function(err, result) {
 	    if (err) {
 	    	console.log("There has been an error")
 	    	res.send(err);

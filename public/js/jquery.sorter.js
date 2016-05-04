@@ -29,6 +29,7 @@
 			var barsWrapper = $('#bar-container')
 			var bars = $('tr.bar');
 
+			// figure out best way to DRY this sort up
 			if(headerCell.hasClass('ascending')){
 				bars.sort(function(a, b){
 					var an = $(a).children('.' + sortType).data(sortType);

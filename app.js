@@ -8,7 +8,7 @@ var mongo = require('mongodb').MongoClient;
 
 var mongoUri = process.env.MONGO_URI ||
   'mongodb://127.0.0.1:27017/l4d';
-  
+
 var port = process.env.PORT || 3000;
     app.listen(port);
 
@@ -40,6 +40,6 @@ app.get('/bars/:letter', function (req, res) {
 	    	bars: result,
 	    	title: title + " // " + letter + " Bars"
 	    })
-	  }), {sort: 'city'};
+	  }, sort({city: 1}));
 	});
 });

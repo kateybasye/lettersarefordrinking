@@ -4,18 +4,20 @@ block content
 	a(href='/') Home
 	h1.align-h-center #{letter} is for...
 	table
-		th Name
-		th Address
-		th Neighborhood
-		th City
-		th Rating
-		th Review Count
-		each val in bars
-			tr 
-				td
-					a(href=val.url, target='_blank') #{val.name}
-				td #{val.address}
-				td #{val.neighborhood}
-				td #{val.city}
-				td #{val.rating}
-				td #{val.review_count}
+		thead
+			th#name.sorter Name
+			th#address.sorter Address
+			th#neighborhood.sorter Neighborhood
+			th#city.sorter City
+			th#rating.sorter Rating
+			th#review_count.sorter Review Count
+		tbody#bar-container
+			each val, index in bars
+				tr.bar
+					td.name(data-name=val.name)
+						a(href=val.url, target='_blank') #{val.name}
+					td.address(data-address=val.address) #{val.address}
+					td.neighborhood(data-neighborhood=val.neighborhood) #{val.neighborhood}
+					td.city(data-city=val.city) #{val.city}
+					td.rating.number(data-rating=val.rating) #{val.rating}
+					td.review_count.number(data-review_count=val.review_count) #{val.review_count}

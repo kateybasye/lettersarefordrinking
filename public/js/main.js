@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
-	$('.sorter').sorter();
+	$('#sortable').sorter({
+		sorterClass: 'header',
+		entityClass: 'bar'
+	});
 
 });

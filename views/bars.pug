@@ -3,15 +3,15 @@ extends layout
 block content
 	a(href='/') Home
 	h1.align-h-center #{letter} is for...
-	table
+	table#sortable
 		thead
-			th#name.sorter Name
-			th#address.sorter Address
-			th#neighborhood.sorter Neighborhood
-			th#city.sorter.ascending City
-			th#rating.sorter Rating
-			th#review_count.sorter Review Count
-		tbody#bar-container
+			th#name.header Name
+			th#address.header Address
+			th#neighborhood.header Neighborhood
+			th#city.header.ascending City
+			th#rating.header Rating
+			th#review_count.header Review Count
+		tbody
 			each val, index in bars
 				tr.bar
 					td.name(data-name=val.name)

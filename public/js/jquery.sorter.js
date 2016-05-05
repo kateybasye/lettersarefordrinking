@@ -1,40 +1,39 @@
 (function ( $ ) {
  
-	$.fn.sorter = function() {
-		// headerRow is 'this' because it is what is selected in main.js
-		var headerRow = this;
+	$.fn.sorter = function(options) {
 
-		// on the click of the header row...
-		headerRow.on('click', function(){
+		var defaults = {
+			sorterClass: 'sorter',
+			entityClass: 'entity'
+		}
 
-			// the specific cell that got clicked on
-			var headerCell = $(this);
+		var settings = $.extend({}, defaults, options);
 
-			if(!headerCell.hasClass('ascending') && !headerCell.hasClass('descending')){
+		var table = $(this);
+		var sorters = $('.' + settings.sorterClass);
+		var entities = $('.' + settings.entityClass);
+
+		table.on('click', '.' + settings.sorterClass, function(){
+			var sorter = $(this);
+			var sortType = sorter.attr('id');
+
+			if(!sorter.hasClass('ascending') && !sorter.hasClass('descending')){
 				$('.ascending').removeClass('ascending');
 				$('.descending').removeClass('descending');
-				headerCell.addClass('ascending');
+				sorter.addClass('ascending');
 			}
-			else if(headerCell.hasClass('ascending')){
-				headerCell.removeClass('ascending').addClass('descending');
+			else if(sorter.hasClass('ascending')){
+				sorter.removeClass('ascending').addClass('descending');
 			}
-			else if(headerCell.hasClass('descending')){
-				headerCell.removeClass('descending').addClass('ascending');
+			else if(sorter.hasClass('descending')){
+				sorter.removeClass('descending').addClass('ascending');
 			}
-
-			// the column that we want to srt
-			var sortType = headerCell.attr('id');
-
-			// convert to options/settings later
-			var barsWrapper = $('#bar-container')
-			var bars = $('tr.bar');
 
 			// figure out best way to DRY this sort up
-			if(headerCell.hasClass('ascending')){
-				bars.sort(function(a, b){
+			if(sorter.hasClass('ascending')){
+				entities.sort(function(a, b){
 					var an = $(a).children('.' + sortType).data(sortType);
 					var bn = $(b).children('.' + sortType).data(sortType);
-					console.log('hi')
 					if(an > bn) {
 						return 1;
 					} else if(an < bn) {
@@ -45,11 +44,10 @@
 					
 				});
 			}
-			else if(headerCell.hasClass('descending')){
-				bars.sort(function(a, b){
+			else if(sorter.hasClass('descending')){
+				entities.sort(function(a, b){
 					var an = $(a).children('.' + sortType).data(sortType);
 					var bn = $(b).children('.' + sortType).data(sortType);
-					console.log('hi')
 					if(an > bn) {
 							return -1;
 					} else if(an < bn) {
@@ -61,8 +59,10 @@
 				});
 			}
 
-			bars.remove().appendTo(barsWrapper);
-		})
+			entities.remove().appendTo(table);
+
+		});
+
 		
 		return this;
 	};
